@@ -1,0 +1,32 @@
+<div class="listing-title-wrapper">
+    <h1>登録フォーム</h1>
+</div>
+<mat-card>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <p>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <!-- placeholderと同じようですがmat-labelは複雑な設定ができます。 -->
+                <input matInput type=text autocomplete="off" formControlName=name>
+                <mat-error class="validation-error" *ngIf="name.hasError('required')">
+                    必須入力
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <!-- placeholderと同じようですがmat-labelは複雑な設定ができます。 -->
+                <input matInput type=text autocomplete="off" formControlName=address>
+                <mat-error class="validation-error" *ngIf="address.hasError('required')">
+                    必須入力
+                </mat-error>
+            </mat-form-field>
+        </p>
+
+        <div>
+            <button mat-raised-button type="submit" color="primary">Purchase</button>
+        </div>
+    </form>
+</mat-card>
